@@ -1,45 +1,55 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class StudentDB {
 
+
     //private Student[] students;
-    private List<Student> students = new ArrayList<>();
+//    private List<Student> students = new ArrayList<>();
+    private Map<String, Student> students = new HashMap<>();
+
 
     //Constructor
 
-
-    public StudentDB(List<Student> students) {
+    public StudentDB(Map<String, Student> students) {
         this.students = students;
     }
+
 
     //Getter | Setter
 
 
-    public List<Student> getStudents() {
+    public Map<String, Student> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(Map<String, Student> students) {
         this.students = students;
     }
 
     //Methods
-    public List<Student> getAllStudents() {
+    public Map<String, Student> getAllStudents() {
         return students;
     }
 
 
+//    public Student randomStudent() {
+//        double num = Math.random();
+//        int length = students.size();
+//        int randomIndex = (int) (num * length);
+//        String key = String.valueOf(randomIndex);
+//
+//        return students.get(key);
+//    }
+
     public Student randomStudent() {
         double num = Math.random();
         int length = students.size();
-        int randomIndex = (int) (num * length);
+        int randomIndex = (int) (num * length) +1;
+        String key = String.valueOf(randomIndex);
 
-        return students.get(randomIndex);
+        return students.get(key);
     }
 
 
@@ -54,13 +64,12 @@ public class StudentDB {
 //        setStudents(temp);
 //    }
 
+    //    public void addStudent(Student student) {
+//        students.add(student);
+//    }
     public void addStudent(Student student) {
-        students.add(student);
+        students.put(student.getId(), student);
     }
-
-
-
-
 
 
 //    public void removeStudent(Student student) {
@@ -92,16 +101,12 @@ public class StudentDB {
 //
 //    }
 
-    public void removeStudent(Student student) {
-        students.remove(student);
-    }
-
-
-
-
-
-
-
+//    public void removeStudent(Student student) {
+//        students.remove(student);
+//    }
+public void removeStudent(Student student) {
+        students.remove(student.getId(), student);
+}
 
 
     @Override
@@ -110,7 +115,6 @@ public class StudentDB {
                 "students=" + students +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {

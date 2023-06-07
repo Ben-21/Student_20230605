@@ -1,9 +1,7 @@
 import model.Student;
 import model.StudentDB;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -12,14 +10,18 @@ public class Main {
         Student berta = new Student("2", "Berta");
         Student klaus = new Student("3", "Klaus");
         Student hilde = new Student("4", "Hilde");
-        List<Student> studentList = new ArrayList<>();
-        studentList.add(anton);
-        studentList.add(berta);
+//        List<Student> studentList = new ArrayList<>();
+//        studentList.add(anton);
+//        studentList.add(berta);
+
+        Map<String, Student> studentMap = new HashMap<>();
+        studentMap.put(anton.getId(), anton);
+        studentMap.put(berta.getId(), berta);
 
 
 
-        StudentDB db = new StudentDB(studentList);
-
+//      StudentDB db = new StudentDB(studentList);
+        StudentDB db = new StudentDB(studentMap);
         System.out.println(db);
 
         db.addStudent(klaus);
