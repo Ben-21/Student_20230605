@@ -1,7 +1,9 @@
 import model.Student;
 import model.StudentDB;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -10,9 +12,13 @@ public class Main {
         Student berta = new Student("2", "Berta");
         Student klaus = new Student("3", "Klaus");
         Student hilde = new Student("4", "Hilde");
-        Student[] expectedArray = {anton, berta};
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(anton);
+        studentList.add(berta);
 
-        StudentDB db = new StudentDB(expectedArray);
+
+
+        StudentDB db = new StudentDB(studentList);
 
         System.out.println(db);
 

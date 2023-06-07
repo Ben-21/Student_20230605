@@ -17,7 +17,8 @@ public class StudentDBTest {
         Student[] actualArray = db.getAllStudents();
 
 
-        Assertions.assertEquals(expectedArray, actualArray);
+//        Assertions.assertEquals(expectedArray, actualArray);
+        Assertions.assertArrayEquals(expectedArray, actualArray);
     }
 
 
